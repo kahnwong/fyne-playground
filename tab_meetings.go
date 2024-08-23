@@ -12,25 +12,26 @@ import (
 )
 
 func meetings() *fyne.Container {
-	// meetingsSection
-	// -- output -- //
-	output := container.New(layout.NewVBoxLayout(), widget.NewLabel("$200"), widget.NewLabel("$20"), widget.NewLabel("$120"))
-
-	// -- form -- //
-	str := binding.NewString()
-	err := str.Set("Hi!")
+	// input bindings
+	a := binding.NewString()
+	err := a.Set("$0")
 	if err != nil {
 		return nil
 	}
+	labelA := widget.NewLabelWithData(a)
 
-	form := container.NewVBox(
-		widget.NewLabelWithData(str),
-		widget.NewEntryWithData(str),
-	)
+	// -- output -- //
+	output := container.New(layout.NewVBoxLayout(), labelA, widget.NewLabel("$20"), widget.NewLabel("$120"))
+
+	// -- form -- //
+	entry := widget.NewEntryWithData(a)
+	entry.PlaceHolder = "foo"
+
+	form := container.New(layout.NewVBoxLayout(), entry, widget.NewLabel("fff"), widget.NewLabel("ccc"))
 
 	meetingsSection := container.New(layout.NewHBoxLayout(), output, form)
 
-	return container.New(layout.NewVBoxLayout(), meetingsHeading(), meetingsSection)
+	return container.New(layout.NewVBoxLayout(), meetingsHeading(), meetingsSection) //, foo)
 }
 
 func meetingsHeading() *fyne.Container {
