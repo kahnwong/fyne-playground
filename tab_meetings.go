@@ -12,18 +12,6 @@ import (
 )
 
 func meetings() *fyne.Container {
-	// constant
-	blankLine := canvas.NewText("", color.White)
-
-	// header
-	heading := canvas.NewText("Meeting Cost Calculator", color.White)
-	heading.TextSize = 30
-
-	subheading := canvas.NewText("How much does this meeting really cost?", color.White)
-	subheading.TextSize = 25
-
-	content := container.New(layout.NewVBoxLayout(), heading, blankLine, subheading, blankLine)
-
 	// meetingsSection
 	// -- output -- //
 	output := container.New(layout.NewVBoxLayout(), widget.NewLabel("$200"), widget.NewLabel("$20"), widget.NewLabel("$120"))
@@ -40,7 +28,21 @@ func meetings() *fyne.Container {
 		widget.NewEntryWithData(str),
 	)
 
-	meetingsSection := container.New(layout.NewHBoxLayout(), output, blankLine, form)
+	meetingsSection := container.New(layout.NewHBoxLayout(), output, form)
 
-	return container.New(layout.NewVBoxLayout(), content, meetingsSection)
+	return container.New(layout.NewVBoxLayout(), meetingsHeading(), meetingsSection)
+}
+
+func meetingsHeading() *fyne.Container {
+	// constant
+	blankLine := canvas.NewText("", color.White)
+
+	// heading
+	heading := canvas.NewText("Meeting Cost Calculator", color.White)
+	heading.TextSize = 30
+
+	subheading := canvas.NewText("How much does this meeting really cost?", color.White)
+	subheading.TextSize = 25
+
+	return container.New(layout.NewVBoxLayout(), heading, blankLine, subheading, blankLine)
 }
