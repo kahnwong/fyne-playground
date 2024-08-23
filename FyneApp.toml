@@ -1,0 +1,8 @@
+Website = "https://github.com/kahnwong/fyne-playground"
+
+[Details]
+Icon = "Icon.png"
+Name = "Fyne Playground"
+ID = "com.kahnwong.fyne-playground"
+Version = "1.0.0"
+Build = 1
