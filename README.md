@@ -10,6 +10,8 @@ apt install gcc libgl1-mesa-dev xorg-dev -y
 
 ## Packaging
 
+<https://docs.fyne.io/started/cross-compiling>
+
 ```bash
 fyne package -os linux
 fyne package -os web
