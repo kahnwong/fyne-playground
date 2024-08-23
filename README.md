@@ -7,3 +7,10 @@
 ```bash
 apt install gcc libgl1-mesa-dev xorg-dev -y
 ```
+
+## Packaging
+
+```bash
+fyne package -os linux
+fyne package -os web
+```
